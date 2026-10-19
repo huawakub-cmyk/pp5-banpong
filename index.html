@@ -171,6 +171,8 @@ $('#fi').onchange=async e=>{const fl=e.target.files[0];e.target.value='';if(!fl)
 const U=D.users,esc0=c=>c,cl=v=>typeof v=='string'?v.replace(/[<>"'&]/g,''):Array.isArray(v)?v.map(cl):v&&typeof v=='object'?Object.fromEntries(Object.entries(v).map(([k,x])=>[k,cl(x)])):v;
 let ME=null,WB=null,DB=null,pt=null,imode='';
 const lowk=(c,l)=>String(c).replace(/\s+/g,''),hid=s=>{let h=5381;for(const ch of s)h=((h<<5)+h+ch.codePointAt(0))>>>0;return'i'+h.toString(36)};
+const dbq=async()=>{if(DB===null){try{DB=(await claude.use('db'))||false}catch(e){DB=false}}return DB};
+const LS=()=>{try{return JSON.parse(localStorage.getItem('pp5w'))||{}}catch(e){return{}}};
 
 const GAS_URL = "https://script.google.com/macros/s/AKfycbyx7SKgCyEphKHps8iERxveP7Tedc4IxqIoOvAzHXc43qaxpXFKrR3r3f9jYCuit2LzZA/exec";
 
